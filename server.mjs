@@ -1,4 +1,4 @@
-/* import { createServer } from "node:http"
+import { createServer } from "node:http"
 
 const server = createServer((request, response) => {
     console.log("request recived");
@@ -13,4 +13,4 @@ const server = createServer((request, response) => {
 
 server.listen(3000 ,()=>{
     console.log(`server running at http://localhost:3000`);
-}) */
+})
