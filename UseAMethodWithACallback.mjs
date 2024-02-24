@@ -18,6 +18,6 @@ fs.writeFile("file-1.txt", newTextFile, { encoding: "utf-8" }, function (error) 
 });
 
 
-fs.readFile("file-1.txt", { encoding: "utf-8" }, function (error, data) {
+/* fs.readFile("file-1.txt", { encoding: "utf-8" }, function (error, data) {
    console.log(data);
-}) 
+}) */
