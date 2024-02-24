@@ -20,4 +20,8 @@ fs.writeFile("file-1.txt", newTextFile, { encoding: "utf-8" }, function (error) 
 
 /* fs.readFile("file-1.txt", { encoding: "utf-8" }, function (error, data) {
    console.log(data);
+<<<<<<< HEAD
 })  */
+=======
+}) */
+>>>>>>> 3577cbef6cbde3c3b444eb320cf279049487dd98
