@@ -1,34 +1,37 @@
-const { EventEmitter } = import("events");
+import { EventEmitter } from "events";
 
 function createNewsFeed() {
-    const emitter =  EventEmitter();
+  const emitter = new EventEmitter();
 
-    setInterval(() => {
-        emitter.emit("newsEvent", "News: A thing happened in a place.");
-    }, 1000);
+  setInterval(() => {
+    emitter.emit("newsEvent", "News: A thing happened in a place.");
+  }, 1000);
 
-    setInterval(() => {
-        emitter.emit("breakingNews", "Breaking news! A BIG thing happened.");
-    }, 4000);
+  setInterval(() => {
+    emitter.emit("breakingNews", "Breaking news! A BIG thing happened.");
+  }, 4000);
 
-    setTimeout(() => {
-        emitter.emit("error", new Error("News feed connection error"));
-    }, 5000);
+  setTimeout(() => {
+    emitter.emit("error", new Error("News feed connection error"));
+  }, 5000);
 
-    return emitter;
+  return emitter;
 }
 
 const newsFeed = createNewsFeed();
 
-// Attach event listeners
-newsFeed.on("newsEvent", (data) => {
-    console.log("News Event:", data);
-});
+const newsEventListener = (data) => {
+  console.log("News Event:", data);
+};
 
-newsFeed.on("breakingNews", (data) => {
-    console.log("Breaking News:", data);
-});
+const breakingNewsListener = (data) => {
+  console.log("Breaking News:", data);
+};
 
-newsFeed.on("error", (error) => {
-    console.error("Error:", error.message);
-});
+const errorListener = (error) => {
+  console.error("Error:", error.message);
+};
+
+newsFeed.addListener("newsEvent", newsEventListener);
+newsFeed.addListener("breakingNews", breakingNewsListener);
+newsFeed.addListener("error", errorListener);
